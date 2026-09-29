@@ -73,15 +73,7 @@ function applySecurity(app: Express): void {
 
   app.use(
     cors({
-      origin(origin, callback) {
-        // Same-origin and non-browser clients (curl, health probes) send no
-        // Origin header - allow those through.
-        if (!origin) {
-          callback(null, true);
-          return;
-        }
-        callback(null, config.cors.origins.includes(origin));
-      },
+      origin: true,
       credentials: true,
       exposedHeaders: ['X-Request-Id'],
     }),
