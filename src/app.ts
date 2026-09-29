@@ -71,7 +71,7 @@ function applySecurity(app: Express): void {
     }),
   );
 
-  app.use(
+    app.use(
     cors({
       origin: true,
       credentials: true,
